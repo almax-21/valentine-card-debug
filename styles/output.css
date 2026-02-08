@@ -1,0 +1,203 @@
+/**
+ * Стили для дебага CSS (конверт с открыткой)
+ *
+ * ВНИМАНИЕ: В этом файле спрятаны баги 🐛!
+ * Найди и исправь их все, чтобы конверт с открыткой выглядел как на скриншоте =)
+ */
+
+* {
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font: 16px/1.05 'YS Text', Helvetica, Arial, sans-serif;
+    
+    background-color: #f2f2f2;
+}
+
+.container {
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.valentine {
+    position: relative;
+}
+
+/* Конверт */
+.envelope {
+    position: relative;
+    
+    width: 750px;
+    height: 333px;
+    
+    background-color: #FCF99C;
+}
+
+/* Открытка внутри конверта */
+.card {
+    position: absolute;
+    /* 🐛 БАГ 1: Открытка уехала */
+    /* top: -250px; */
+    /* left: -100px; */
+    /* transform: rotate(45deg); */
+    top: -100px;
+    left: 35px;
+    
+    width: 675px;
+    height: 283px;
+    
+    background-color: #FFFFFF;
+}
+
+.card:before {
+    position: absolute;
+    top: 20px;
+    left: 33px;
+    
+    width: 600px;
+    height: 233px;
+    /* 🐛 БАГ 2: Рамка стала сплошной и слишком толстой */
+    /* border: 15px solid #1A1D1D; */
+    /* border-style: solid; */
+    border: 4px solid #1A1D1D;
+    border-style: dotted;
+    
+    content: "";
+}
+
+/* Текст на открытке */
+.text {
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    
+    font-family: 'YS Display', Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1A1D1D;
+    text-align: center;
+    text-transform: uppercase;
+    
+    /* 🐛 БАГ 3: Текст отзеркален */
+    transform: translateX(-50%);
+    /* transform: translateX(-50%) scaleX(-1); */
+}
+
+.text em {
+    font-style: normal;
+
+    color: #FF551F;
+}
+
+/* Сердце на открытке */
+.heart {
+    position: relative;
+    top: 240px;
+    left: 285px;
+    z-index: 1000;
+    
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 0 17px;
+    
+    background-color: #1A1D1D;
+    
+    /* 🐛 БАГ 4: Сердце повёрнуто неправильно */
+    /* transform: rotate(0deg); */
+    transform: rotate(-45deg);
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    
+    width: 50px;
+    height: 50px;
+    
+    background-color: #1A1D1D;
+    /* 🐛 БАГ 5: Псевдоэлементы сердца стали квадратными */
+    /* border-radius: 0%; */
+    border-radius: 50%;
+    
+    content: "";
+}
+
+.heart:before {
+    top: -25px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 25px;
+}
+
+/* Передняя часть конверта (клапан) */
+.front {
+    position: absolute;
+    top: 8px;
+    left: 300px;
+    z-index: 10;
+    
+    width: 0;
+    height: 0;
+    
+    /* 🐛 БАГ 6: Нижняя часть клапана тоже неправильного цвета */
+    /* border-right: 450px solid #ff6b6b; */
+    border-right: 450px solid #FF551F;
+    border-top: 158px solid transparent;
+    border-bottom: 167px solid transparent;
+}
+
+.front:before {
+    position: absolute;
+    top: -158px;
+    left: -300px;
+    
+    width: 0;
+    height: 0;
+    
+    border-left: 750px solid #FCF99C;
+    border-top: 325px solid transparent;
+    
+    content: "";
+}
+
+/* Тень под конвертом */
+.shadow {
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    z-index: -1;
+    
+    width: 825px;
+    height: 42px;
+    margin-left: -412.5px;
+    
+    /* 🐛 БАГ 7: Тень стала квадратной и другого цвета */
+    /* border-radius: 0; */
+    /* background-color: #FF551F; */
+    border-radius: 50%;
+    background-color: #A9A9A9;
+}
