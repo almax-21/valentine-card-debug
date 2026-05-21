@@ -55,12 +55,9 @@ body {
 /* Открытка внутри конверта */
 .card {
     position: absolute;
-    /* 🐛 БАГ 1: Открытка уехала */
-    /* top: -250px; */
-    /* left: -100px; */
-    /* transform: rotate(45deg); */
-    top: -100px;
-    left: 35px;
+    top: -250px;
+    left: -100px;
+    transform: rotate(45deg);
     
     width: 675px;
     height: 283px;
@@ -75,11 +72,8 @@ body {
     
     width: 600px;
     height: 233px;
-    /* 🐛 БАГ 2: Рамка стала сплошной и слишком толстой */
-    /* border: 15px solid #1A1D1D; */
-    /* border-style: solid; */
-    border: 4px solid #1A1D1D;
-    border-style: dotted;
+    border: 15px solid #1A1D1D;
+    border-style: solid;
     
     content: "";
 }
@@ -98,9 +92,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     
-    /* 🐛 БАГ 3: Текст отзеркален */
-    transform: translateX(-50%);
-    /* transform: translateX(-50%) scaleX(-1); */
+    transform: translateX(-50%) scaleX(-1);
 }
 
 .text em {
@@ -123,9 +115,7 @@ body {
     
     background-color: #1A1D1D;
     
-    /* 🐛 БАГ 4: Сердце повёрнуто неправильно */
-    /* transform: rotate(0deg); */
-    transform: rotate(-45deg);
+    transform: rotate(0deg);
 }
 
 .heart:before,
@@ -136,9 +126,7 @@ body {
     height: 50px;
     
     background-color: #1A1D1D;
-    /* 🐛 БАГ 5: Псевдоэлементы сердца стали квадратными */
-    /* border-radius: 0%; */
-    border-radius: 50%;
+    border-radius: 0%;
     
     content: "";
 }
@@ -163,9 +151,7 @@ body {
     width: 0;
     height: 0;
     
-    /* 🐛 БАГ 6: Нижняя часть клапана тоже неправильного цвета */
-    /* border-right: 450px solid #ff6b6b; */
-    border-right: 450px solid #FF551F;
+    border-right: 450px solid #ff6b6b;
     border-top: 158px solid transparent;
     border-bottom: 167px solid transparent;
 }
@@ -195,9 +181,6 @@ body {
     height: 42px;
     margin-left: -412.5px;
     
-    /* 🐛 БАГ 7: Тень стала квадратной и другого цвета */
-    /* border-radius: 0; */
-    /* background-color: #FF551F; */
-    border-radius: 50%;
-    background-color: #A9A9A9;
+    border-radius: 0;
+    background-color: #FF551F;
 }
